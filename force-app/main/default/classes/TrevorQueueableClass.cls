@@ -14,8 +14,8 @@ public class TrevorQueueableClass implements Queueable {
 
         // But you can publish 2 platform events
         List<Launch_Async_Class__e> asyncJobEvents = new List<Launch_Async_Class__e>();
-        asyncJobEvents.add(new Launch_Async_Class__e(Class_Name__c='DoTheHokeyPokeyQueueable'));
         asyncJobEvents.add(new Launch_Async_Class__e(Class_Name__c='ShakeItAllAboutQueueable'));
+        asyncJobEvents.add(new Launch_Async_Class__e(Class_Name__c='DoTheHokeyPokeyQueueable'));
         EventBus.publish(asyncJobEvents); 
     } 
 
