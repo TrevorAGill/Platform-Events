@@ -1,6 +1,6 @@
 trigger AccountTrigger on Account (after update) {
     /* 1. We hit a governor limit for excessive querying */
-    //AccountClass.gratuitousQuerying(Trigger.new, null);
+    // AccountClass.gratuitousQuerying(Trigger.new, null);
 
     /* 2. Publish a list of events with checkpoint inserted after each successfully processed event */
     // List<Account_Query__e> acctsToQuery = new List<Account_Query__e>();
@@ -11,9 +11,9 @@ trigger AccountTrigger on Account (after update) {
 
     /* 3. Publish individual events */
     // for(Account acct : Trigger.new) {
-    //     EventBus.publish(new Account_Query__e(Account_Id__c = acct.Id));
+    //     EventBus.publish(new Account_Query__e(Account_Id__c = acct.Id)); // limited to publishing 10,000 events from this trigger
     // }
 
-    // Run a queueable class
-    ID jobID = System.enqueueJob(new TrevorQueueableClass(Trigger.new));
+    /* 4. Run a queueable class */
+    ID jobID = System.enqueueJob(new TrevorQueueableClass());
 }

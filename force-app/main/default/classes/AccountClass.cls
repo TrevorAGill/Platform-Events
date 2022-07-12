@@ -2,7 +2,7 @@ public class AccountClass {
     public static void gratuitousQuerying(List<Account> acctsFromTrigger, String accountId) {
         if (acctsFromTrigger != null) {
             for(Account acct : acctsFromTrigger) {
-                for(Integer i=0; i<50; i++) {
+                for(Integer i=0; i<50; i++) { // If more than 2 accounts are sent from the trigger, we will hit SOQL limit
                     Account newAccount = [SELECT Id, Name FROM Account WHERE Id = :acct.Id];
                     System.debug('Queried Account = ' + newAccount);
                 }
