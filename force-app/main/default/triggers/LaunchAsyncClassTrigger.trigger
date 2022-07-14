@@ -1,3 +1,5 @@
+// Credit to Ohad Idan, Praxis LLC, for this trigger code.
+
 trigger LaunchAsyncClassTrigger on Launch_Async_Class__e (after insert) {
     for(Launch_Async_Class__e event : trigger.new){
         if(String.isNotBlank(event.Class_Name__c)){

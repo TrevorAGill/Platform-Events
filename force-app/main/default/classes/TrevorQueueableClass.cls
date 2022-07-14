@@ -6,7 +6,7 @@ public class TrevorQueueableClass implements Queueable {
         System.enqueueJob(new ShakeItAllAboutQueueable());
         System.enqueueJob(new DoTheHokeyPokeyQueueable());
 
-        // But you can publish 2 platform events; in fact, you can add up to 50 queueable jobs
+        // But you can publish 2 platform events that in turn each kick off a queueable job. In fact you can publish 10,000 platform events
         // List<Launch_Async_Class__e> asyncJobEvents = new List<Launch_Async_Class__e>();
         // asyncJobEvents.add(new Launch_Async_Class__e(Class_Name__c='ShakeItAllAboutQueueable'));
         // asyncJobEvents.add(new Launch_Async_Class__e(Class_Name__c='DoTheHokeyPokeyQueueable'));
